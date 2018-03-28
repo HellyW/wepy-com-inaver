@@ -1,7 +1,7 @@
 <style lang="less">
 .pic{
   width:100vw;
-  height:800rpx;
+  height:400rpx;
 }
 .title{
   margin-left: 15rpx;
