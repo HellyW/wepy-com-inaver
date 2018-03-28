@@ -1,0 +1,2 @@
+@import "./../inaver/inaver.wxss";
+.pic{width:100vw;height:800rpx}.title{margin-left:15rpx}.btn{width:80vw;margin:30rpx auto;height:60rpx;line-height:60rpx;font-size:30rpx}.info{width:80vw;font-size:30rpx;line-height:40rpx;margin:10rpx auto}

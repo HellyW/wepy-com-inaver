@@ -1,0 +1,25 @@
+<style lang="less">
+</style>
+
+<script>
+import wepy from 'wepy'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      // 这是重点
+      navigationStyle: 'custom',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'Demo',
+      navigationBarTextStyle: 'white'
+    }
+  }
+
+  onLaunch() {
+  }
+}
+</script>

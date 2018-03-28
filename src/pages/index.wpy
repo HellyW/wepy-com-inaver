@@ -1,0 +1,73 @@
+<style lang="less">
+.pic{
+  width:100vw;
+  height:800rpx;
+}
+.title{
+  margin-left: 15rpx;
+}
+.btn{
+  width:80vw;
+  margin:30rpx auto;
+  height:60rpx;
+  line-height:60rpx;
+  font-size:30rpx;
+}
+.info{
+  width:80vw;
+  font-size:30rpx;
+  line-height:40rpx;
+  margin:10rpx auto;
+}
+</style>
+<template>
+  <view wx:if="{{demoType=='picture'}}">
+  <image class="pic" src="../images/demo.png"></image>
+  </view>
+
+  <view wx:else>
+<!-- 此处引用   直接引用即可。此处为演示其他效果，包裹在view中 -->
+    <inaver :showBack.sync="showBack" :background.sync="bgColor"><text class="title" slot="main">首页</text></inaver>
+    <button class='btn' @tap.stop="showNotBack">切换返回按钮显示状态</button>
+    <button class='btn' @tap.stop="randomBgColor">随机背景颜色</button>
+  </view>
+  <view class="info">说明：</view>
+  <view class="info">很多开发者反馈，如何实现图片显示在顶部的效果。事实上只需要加载一张图片在顶部即可。</view>
+  <view class="info">点击下方按钮显示效果，后期我会考虑将nav效果升级到图片效果</view>
+  <button class='btn' @tap.stop="showDemo">切换demo效果</button>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import inaver from '../inaver/inaver'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: 'test'
+    }
+    data = {
+      showBack: true,
+      bgColor: '#353535',
+      demoType: 'default'
+    }
+    components = {
+      inaver
+    }
+    methods = {
+      showNotBack: function () {
+        this.showBack = !this.showBack
+        this.$apply()
+      },
+      randomBgColor: function () {
+        let _colors = ['#353535', '#E38F58', '#2A5C98', '#027204', '#4454CC', '#60D4C0']
+        this.bgColor = _colors[Math.floor(Math.random() * _colors.length)]
+        this.$apply()
+      },
+      showDemo: function () {
+        this.demoType = this.demoType === 'default' ? 'picture' : 'default'
+        this.$apply()
+      }
+    }
+    onLoad() {
+    }
+  }
+</script>

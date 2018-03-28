@@ -1,0 +1,28 @@
+
+  <view  wx:if="{{demoType=='picture'}}">
+  <image class="pic" src="../images/demo.png"/>
+  </view>
+
+  <view  wx:else>
+<!-- 此处引用   直接引用即可。此处为演示其他效果，包裹在view中 -->
+    
+  <view  wx:if="{{$inaver$getCompatibility}}" class="inaver _30f2b4d" style="background:{{$inaver$background}};color:{{$inaver$getColor}}">
+    <view wx:if="{{$inaver$showBack}}" class="left _30f2b4d" catchtap="$inaver$goBack">
+      <image wx:if="{{$inaver$colorTheme=='black'}}" class="icon _30f2b4d" src="../inaver/icon/back-black.png"/>
+      <image wx:else class="icon _30f2b4d" src="../inaver/icon/back-white.png"/>
+    </view>
+    <view class="center _30f2b4d">
+      <!-- 自定义区域 -->
+      <text class="title">首页</text>
+    </view>
+    <view wx:if="{{$inaver$protectCapsule}}" class="right _30f2b4d">
+      <!-- 保护右上角胶囊不被污染 -->
+    </view>
+  </view>
+    <button class="btn" catchtap="showNotBack">切换返回按钮显示状态</button>
+    <button class="btn" catchtap="randomBgColor">随机背景颜色</button>
+  </view>
+  <view class="info">说明：</view>
+  <view class="info">很多开发者反馈，如何实现图片显示在顶部的效果。事实上只需要加载一张图片在顶部即可。</view>
+  <view class="info">点击下方按钮显示效果，后期我会考虑将nav效果升级到图片效果</view>
+  <button class="btn" catchtap="showDemo">切换demo效果</button>
