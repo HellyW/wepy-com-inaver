@@ -73,6 +73,10 @@
       checkCompatibility: {
         type: Boolean,
         default: true
+      },
+      samrtBack: {
+        type: Boolean,
+        default: true
       }
     }
     _compareVersion(v1, v2) {
@@ -124,6 +128,13 @@
     data = {
     }
     onLoad() {
+      if (this.samrtBack && this.showBack) {
+        let _currentPages = getCurrentPages()
+        if (_currentPages.length === 1) {
+          this.showBack = false
+          this.$apply()
+        }
+      }
     }
     methods = {
       goBack: function () {
