@@ -1,3 +1,8 @@
+## 同类组件
+#### [可搜索可快捷导航的省市区地址选择器](https://github.com/wahao/wepy-com-icityer)
+#### [现代样式弹窗组件](https://github.com/wahao/wepy-com-iviewer)
+
+
 # 效果：
 
 <img src="./screenshot/screenshot1.png"/>
