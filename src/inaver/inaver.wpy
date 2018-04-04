@@ -6,6 +6,10 @@
     width:100vw;
     height:160rpx;
     display:flex;
+    position:fixed;
+    z-index:5000;
+    top:0;
+    left:0;
     .left{
       width:100rpx;
       height:100rpx;
@@ -29,10 +33,15 @@
       margin:8rpx;
     }
   }
+  .protect-inaver{
+    box-sizing:border-box;
+    width:100vw;
+    height:160rpx;
+  }
 </style>
 <template>
   <view wx:if="{{getCompatibility}}" class="inaver" style="background:{{background}};color:{{getColor}}">
-    <view wx:if="{{showBack}}" class="left" @tap.stop="goBack">
+    <view wx:if="{{getSmartShowBack}}" class="left" @tap.stop="goBack">
       <image wx:if="{{colorTheme=='black'}}" class="icon" src="./icon/back-black.png"></image>
       <image wx:else class="icon" src="./icon/back-white.png"></image>
     </view>
@@ -44,6 +53,9 @@
     <view wx:if="{{protectCapsule}}" class="right">
       <!-- 保护右上角胶囊不被污染 -->
     </view>
+  </view>
+  <view wx:if="{{getCompatibility}}" class="protect-inaver">
+    <!-- 占据顶部位置， 伪padding板块 -->
   </view>
 </template>
 <script>
@@ -74,7 +86,7 @@
         type: Boolean,
         default: true
       },
-      samrtBack: {
+      smartBack: {
         type: Boolean,
         default: true
       }
@@ -121,6 +133,16 @@
           return false
         }
         return true
+      },
+      getSmartShowBack: function () {
+        let _currentPages = getCurrentPages()
+        if (this.smartBack && this.showBack) {
+          if (_currentPages.length === 1) {
+            return false
+          }
+          return true
+        }
+        return this.showBack
       }
     }
     watch = {
@@ -128,13 +150,6 @@
     data = {
     }
     onLoad() {
-      if (this.samrtBack && this.showBack) {
-        let _currentPages = getCurrentPages()
-        if (_currentPages.length === 1) {
-          this.showBack = false
-          this.$apply()
-        }
-      }
     }
     methods = {
       goBack: function () {

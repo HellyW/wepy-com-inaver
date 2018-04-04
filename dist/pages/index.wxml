@@ -7,7 +7,7 @@
 <!-- 此处引用   直接引用即可。此处为演示其他效果，包裹在view中 -->
     
   <view  wx:if="{{$inaver$getCompatibility}}" class="inaver _30f2b4d" style="background:{{$inaver$background}};color:{{$inaver$getColor}}">
-    <view wx:if="{{$inaver$showBack}}" class="left _30f2b4d" catchtap="$inaver$goBack">
+    <view wx:if="{{$inaver$getSmartShowBack}}" class="left _30f2b4d" catchtap="$inaver$goBack">
       <image wx:if="{{$inaver$colorTheme=='black'}}" class="icon _30f2b4d" src="../inaver/icon/back-black.png"/>
       <image wx:else class="icon _30f2b4d" src="../inaver/icon/back-white.png"/>
     </view>
@@ -19,7 +19,13 @@
       <!-- 保护右上角胶囊不被污染 -->
     </view>
   </view>
+  <view  wx:if="{{$inaver$getCompatibility}}" class="protect-inaver _30f2b4d">
+    <!-- 占据顶部位置， 伪padding板块 -->
+  </view>
+    <button class="btn" catchtap="showSamrtBack">切换智能返回环境</button>
+    <view class="info">智能环境（smartBack）： {{smartBack?"智能":"手动"}}</view>
     <button class="btn" catchtap="showNotBack">切换返回按钮显示状态</button>
+    <view class="info">返回按钮（showBack）： {{showBack?"显示":"隐藏"}}</view>
     <button class="btn" catchtap="randomBgColor">随机背景颜色</button>
   </view>
   <view class="info">说明：</view>

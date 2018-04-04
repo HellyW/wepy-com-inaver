@@ -1,6 +1,6 @@
 
   <view  wx:if="{{getCompatibility}}" class="inaver _30f2b4d" style="background:{{background}};color:{{getColor}}">
-    <view wx:if="{{showBack}}" class="left _30f2b4d" catchtap="goBack">
+    <view wx:if="{{getSmartShowBack}}" class="left _30f2b4d" catchtap="goBack">
       <image wx:if="{{colorTheme=='black'}}" class="icon _30f2b4d" src="./icon/back-black.png"/>
       <image wx:else class="icon _30f2b4d" src="./icon/back-white.png"/>
     </view>
@@ -12,4 +12,7 @@
     <view wx:if="{{protectCapsule}}" class="right _30f2b4d">
       <!-- 保护右上角胶囊不被污染 -->
     </view>
+  </view>
+  <view  wx:if="{{getCompatibility}}" class="protect-inaver _30f2b4d">
+    <!-- 占据顶部位置， 伪padding板块 -->
   </view>

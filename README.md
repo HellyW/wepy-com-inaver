@@ -38,7 +38,17 @@
 #### showBack 
 ##### Boolean 
 ##### 默认值：true 
-##### 是否显示返回按钮 
+##### 是否显示返回按钮
+
+#### smartBack
+##### Boolean 
+##### 默认值：true 
+##### 自动判断是否显示返回按钮，必须同时配合showBack为true使用
+
+### 备注： showBack 与 smartBack
+
+#### 1.smartBack为true时，showBack为true会根据系统层级判断是否显示；showBack为false时，总不显示；
+#### 2.smartBack为false时，根据showBack直接控制显隐
 
 #### toBack 
 ##### Boolean 
@@ -53,12 +63,7 @@
 #### protectCapsule 
 ##### Boolean 
 ##### 默认值：true 
-##### 保护胶囊，不被污染；取消可扩大显示区域 
-
-#### samrtBack
-##### Boolean 
-##### 默认值：true 
-##### 自动判断是否显示返回按钮，必须同时配合showBack为true使用
+##### 保护胶囊，不被污染；取消可扩大显示区域
 
 ## slot
 

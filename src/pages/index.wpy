@@ -27,8 +27,11 @@
 
   <view wx:else>
 <!-- 此处引用   直接引用即可。此处为演示其他效果，包裹在view中 -->
-    <inaver :showBack.sync="showBack" :background.sync="bgColor"><text class="title" slot="main">首页</text></inaver>
+    <inaver :showBack.sync="showBack" :background.sync="bgColor" :smartBack.sync="smartBack"><text class="title" slot="main">首页</text></inaver>
+    <button class='btn' @tap.stop="showSamrtBack">切换智能返回环境</button>
+    <view class="info">智能环境（smartBack）： {{smartBack?"智能":"手动"}}</view>
     <button class='btn' @tap.stop="showNotBack">切换返回按钮显示状态</button>
+    <view class="info">返回按钮（showBack）： {{showBack?"显示":"隐藏"}}</view>
     <button class='btn' @tap.stop="randomBgColor">随机背景颜色</button>
   </view>
   <view class="info">说明：</view>
@@ -46,6 +49,7 @@
     }
     data = {
       showBack: true,
+      smartBack: true,
       bgColor: '#353535',
       demoType: 'default'
     }
@@ -64,6 +68,10 @@
       },
       showDemo: function () {
         this.demoType = this.demoType === 'default' ? 'picture' : 'default'
+        this.$apply()
+      },
+      showSamrtBack: function () {
+        this.smartBack = !this.smartBack
         this.$apply()
       }
     }
